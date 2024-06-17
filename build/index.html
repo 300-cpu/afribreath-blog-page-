@@ -8,47 +8,211 @@
   <link href="css/style.css" rel="stylesheet">
 </head>
 
-<body class="bg-blue-950 text-white">
-  <nav class="bg-blue-950 p-4 mb-6">
-    <img src="../image/1.png" alt="Afribreath">
+<body class="bg-slate-100 text-blue-800">
+  <nav class="bg-slate-100 p-4 mb-6">
+    <div class="pt-10 w-96 pl-10">
+      <img src="../image/afri1.png" alt="Afribreath">
+    </div>
+
+
+    <div class="pb-5">
+      <h2 class="text-3xl text-center mb-3 text-black">Blog</h2>
+      <h2 class="text-xs text-center text-black">Your Guide to Understanding and Thriving in the Digital Age</h2>
+    </div>
+
     <div class="container max-w-6xl mx-auto flex flex-col gap-8 items-center sm:flex-col">
-      <div class="relative w-full pt-10">
-        <input type="text" placeholder="search Blog ....." id="search-input"
-          class="shadow-md text-center sm-wrap space-x-10 py-2 px-3 bg-gray-500 rounded-full focus:w-full mb-4">
+      <div class="relative w-full pt-16">
+        <input type="text" placeholder="Search Blog..." id="search-input" oninput="highlightText()"
+          class="shadow-md text-center sm-wrap space-x-10 py-2 px-3 bg-blue-400 rounded-full w-full mb-4">
+        <div class="pt-12">
+          <svg xmlns="http://www.w3.org/2000/svg"
+            class="absolute focus:w-full left-3 top-1/2 transform -translate-y-1/2 w-6 h-6 text-gray-500" x="0px"
+            y="0px" width="100" height="100" viewBox="0 0 48 48">
+            <path fill="#616161" d="M34.6 28.1H38.6V45.1H34.6z" transform="rotate(-45.001 36.586 36.587)"></path>
+            <path fill="#616161" d="M20 4A16 16 0 1 0 20 36A16 16 0 1 0 20 4Z"></path>
+            <path fill="#37474F" d="M36.2 32.1H40.2V44.400000000000006H36.2z" transform="rotate(-45.001 38.24 38.24)">
+            </path>
+            <path fill="#64B5F6" d="M20 7A13 13 0 1 0 20 33A13 13 0 1 0 20 7Z"></path>
+            <path fill="#BBDEFB"
+              d="M26.9,14.2c-1.7-2-4.2-3.2-6.9-3.2s-5.2,1.2-6.9,3.2c-0.4,0.4-0.3,1.1,0.1,1.4c0.4,0.4,1.1,0.3,1.4-0.1C16,13.9,17.9,13,20,13s4,0.9,5.4,2.5c0.2,0.2,0.5,0.4,0.8,0.4c0.2,0,0.5-0.1,0.6-0.2C27.2,15.3,27.2,14.6,26.9,14.2z">
+            </path>
+          </svg>
+        </div>
       </div>
-      <button id="search-button"
-        class="shadow-black bg-gray-500 text-xs py-2 px-3 tracking-wider hover:bg-white hover:text-blue-600 rounded-full w-36">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
-          class="w-6 h-6 inline-block">
-          <path stroke-linecap="round" stroke-linejoin="round"
-            d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
-        </svg>
-        Search
-      </button>
     </div>
   </nav>
 
-  <section class="mt-12 mb-20 parent-section" id="placeholder-container" style="display: none;">
-    <p>No articles available at the moment. Please check back later.</p>
-  </section>
+  
 
-  <section class="mt-12 mb-12 parent-section" id="blog-container">
-    <!-- The blog cards will be dynamically inserted here by JavaScript -->
-  </section>
+  <style>
+    .highlight {
+      background-color: yellow;
+      /* Optional additional styling */
+    }
+  </style>
 
-  <template id="blog-card-template">
-    <div class="blog-card flex flex-col lg:flex-row mx-10 mb-6 rounded-lg md:mx-20 border lg:mx-40 transition-all duration-300">
-      <a href="#" class="w-full">
-        <img class="rounded-t-lg lg:rounded-l-lg lg:rounded-tr-none w-full h-auto" style="height: 300px; width: 500px;" src="https://media-lhr6-2.cdn.whatsapp.net/v/t61.24694-24/418066390_820934989595335_5477352834134966101_n.jpg?ccb=11-4&oh=01_Q5AaIKnT2J6xWlHbqXfkXhg3XsSCcdKgUaj0qsmwsnQU4nh5&oe=666EFA07&_nc_sid=e6ed6c&_nc_cat=109" alt="">
-      </a>
-      <div class="p-4">
-        <h2 class="text-left m-2 uppercase text-xl"></h2>
-        <p class="m-8 pr-10"></p>
+  <section class="flex flex-col lg:flex-row">
+    <div class="flex flex-col lg:flex-row mx-10 items-center p-10 space-x-16">
+      <div class="p-0 overflow-hidden shadow-2xl max-w-lg rounded-xl bg-slate-300">
+        <img class="w-full h-80 object-cover rounded-t-xl" src="../image/2.jpg" alt="Card image">
+        <div id="content" class="p-5">
+          <h2 class="text-blue-700 font-semibold p-3 mb-5 text-center uppercase">Image in the background Link</h2>
+          <p class="text-gray-400 mb-7">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repellat, omnis. Vitae,
+            tempora! Consequuntur amet minus hic quia distinctio non itaque dolores libero eos animi incidunt,
+            exercitationem totam perspiciatis ut officiis.</p>
+          <div class="flex flex-row space-x-5 pr-5 pt-1">
+            <img class="rounded-full w-12 border-2 shadow-slate-500" src="../image/Ra.jpg" alt="photo">
+            <div class="flex-row pt-1">
+              <h2 class="font-sans text-blue-600">Sarah Amaka</h2>
+              <p class="text-gray-400">Frontend engineer</p>
+            </div>
+          </div>
+          <div class="flex flex-row bottom-14 items-center text-blue-600 pl-80 pt-3">
+            <a href="#">Read More
+              <img class="w-8 " src="../image/p2.png"></a>
+          </div>
+        </div>
       </div>
     </div>
-  </template>
+    <div class="flex flex-col lg:flex-row mx-10 items-center p-10 space-x-16">
+      <div class="p-0 overflow-hidden shadow-2xl max-w-lg rounded-xl bg-slate-300">
+        <img class="w-full h-96 object-cover rounded-t-xl" src="../image/OIF.jpg" alt="Card image">
+        <div id="content" class="p-5">
+          <h2 class="text-blue-700 font-semibold p-3 mb-5 text-center uppercase">Image in the background Link</h2>
+          <p class="text-gray-400 mb-7">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repellat, omnis. Vitae,
+            tempora! Consequuntur amet minus hic quia distinctio non itaque dolores libero eos animi incidunt,
+            exercitationem totam perspiciatis ut officiis.</p>
+          <div class="flex flex-row space-x-5 pr-5 pt-1">
+            <img class="rounded-full w-12 border-2 shadow-slate-500" src="../image/Ra.jpg" alt="photo">
+            <div class="flex-row pt-1">
+              <h2 class="font-sans text-blue-600">Sarah Amaka</h2>
+              <p class="text-gray-400">Frontend engineer</p>
+            </div>
+          </div>
+          <div class="flex flex-row bottom-14 items-center text-blue-600 pl-80 pt-3">
+            <a href="#">Read More
+              <img class="w-8 " src="../image/p2.png"></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-  <script src="script.js"></script>
+  <section class="flex flex-col lg:flex-row mb-20">
+    <div class="flex flex-col lg:flex-row mx-10 items-center p-10 space-x-16">
+      <div class="p-0 overflow-hidden shadow-2xl max-w-lg rounded-xl bg-slate-300">
+        <img class="w-full h-96 object-cover rounded-t-xl" src="../image/p3.png" alt="Card image">
+        <div id="content" class="p-5">
+          <h2 class="text-blue-700 font-semibold p-3 mb-5 text-center uppercase">Image in the background Link</h2>
+          <p class="text-gray-400 mb-7">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repellat, omnis. Vitae,
+            tempora! Consequuntur amet minus hic quia distinctio non itaque dolores libero eos animi incidunt,
+            exercitationem totam perspiciatis ut officiis.</p>
+          <div class="flex flex-row space-x-5 pr-5 pt-1">
+            <img class="rounded-full w-12 border-2 shadow-slate-500" src="../image/Ra.jpg" alt="photo">
+            <div class="flex-row pt-1">
+              <h2 class="font-sans text-blue-600">Sarah Amaka</h2>
+              <p class="text-gray-400">Frontend engineer</p>
+            </div>
+          </div>
+          <div class="flex flex-row bottom-14 items-center text-blue-600 pl-80 pt-3">
+            <a href="#">Read More
+              <img class="w-8 " src="../image/p2.png"></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="flex flex-col lg:flex-row mx-10 items-center p-10 space-x-16">
+      <div class="p-0 overflow-hidden shadow-2xl max-w-lg rounded-xl bg-slate-300">
+        <img class="w-full h-96 object-cover rounded-t-xl" src="../image/1.webp" alt="Card image">
+        <div id="content" class="p-5">
+          <h2 class="text-blue-700 font-semibold p-3 mb-5 text-center uppercase">Image in the background Link</h2>
+          <p class="text-gray-400 mb-7">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repellat, omnis. Vitae,
+            tempora! Consequuntur amet minus hic quia distinctio non itaque dolores libero eos animi incidunt,
+            exercitationem totam perspiciatis ut officiis.</p>
+          <div class="flex flex-row space-x-5 pr-5 pt-1">
+            <img class="rounded-full w-12 border-2 shadow-slate-500" src="../image/Ra.jpg" alt="photo">
+            <div class="flex-row pt-1">
+              <h2 class="font-sans text-blue-600">Sarah Amaka</h2>
+              <p class="text-gray-400">Frontend engineer</p>
+            </div>
+          </div>
+          <div class="flex flex-row bottom-14 items-center text-blue-600 pl-80 pt-3">
+            <a href="#">Read More
+              <img class="w-8 " src="../image/p2.png"></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+  </section>
+
+
+  <footer class="bg-blue-900 text-slate-50 py-6 text-center">
+    <p class="text-sm">&copy; 2023 Afribreath. All rights reserved.</p>
+    <div class="flex justify-center space-x-4">
+      <a href="#" class="hover:underline">Privacy Policy</a>
+      <a href="#" class="hover:underline">Terms of Service</a>
+      <a href="#" class="hover:underline">Contact Us</a>
+    </div>
+  </footer>
+
+  <script>
+    function highlightText() {
+      const input = document.getElementById('search-input');
+      const filter = input.value.toLowerCase();
+      const contents = document.querySelectorAll('#content');
+
+      contents.forEach(content => {
+        const textNodes = getTextNodes(content);
+        resetHighlight(content);
+
+        if (filter) {
+          textNodes.forEach(node => {
+            const parent = node.parentNode;
+            const text = node.nodeValue;
+            const index = text.toLowerCase().indexOf(filter);
+
+            if (index !== -1) {
+              const highlightedText = document.createElement('span');
+              highlightedText.className = 'highlight bg-yellow-300';
+              highlightedText.textContent = text.substring(index, index + filter.length);
+
+              const beforeText = document.createTextNode(text.substring(0, index));
+              const afterText = document.createTextNode(text.substring(index + filter.length));
+
+              parent.insertBefore(beforeText, node);
+              parent.insertBefore(highlightedText, node);
+              parent.insertBefore(afterText, node);
+              parent.removeChild(node);
+            }
+          });
+        }
+      });
+    }
+
+    function getTextNodes(node) {
+      let textNodes = [];
+      if (node.nodeType === Node.TEXT_NODE) {
+        textNodes.push(node);
+      } else {
+        node.childNodes.forEach(child =>{
+          textNodes = textNodes.concat(getTextNodes(child));
+        });
+      }
+      return textNodes;
+    }
+
+    function resetHighlight(node) {
+      const highlightedElements = node.querySelectorAll('.highlight');
+      highlightedElements.forEach(el => {
+        const parent = el.parentNode;
+        parent.replaceChild(document.createTextNode(el.textContent), el);
+        parent.normalize();
+      });
+    }
+  </script>
 </body>
 
 </html>
